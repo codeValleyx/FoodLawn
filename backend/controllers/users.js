@@ -1,5 +1,5 @@
 const User = require('../models/user')
-// const passport = require('../server')
+const passport = require('passport')
 
 module.exports.signIn = (req, res) => {
     const user = new User({

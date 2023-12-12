@@ -1,8 +1,7 @@
 const User = require("../models/user")
+const passport = require("passport")
 
-module.exports = (passport) => {
-    passport.use(User.createStrategy());
+passport.use(User.createStrategy());
 
-    passport.serializeUser(User.serializeUser());
-    passport.deserializeUser(User.deserializeUser());
-}
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());

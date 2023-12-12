@@ -23,9 +23,7 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 
-const initializePassport = require("./config/passport");
-initializePassport(passport);
-
+require("./config/passport");
 app.use("/", Routes);
 
 app.listen(PORT, ()=>{console.log(`server listening on port ${PORT}`);})
