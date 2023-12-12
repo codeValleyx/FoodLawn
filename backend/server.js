@@ -1,8 +1,9 @@
 require("dotenv").config()
 const express = require("express");
-const passport = require("passport");
 const session = require("express-session");
 
+const User = require("./models/user")
+const passport = require("./config/passport_config")
 const Routes = require("./routes")
 
 const PORT = process.env.PORT || 8000;
@@ -23,8 +24,13 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 
-const initializePassport = require("./config/passport");
-initializePassport(passport);
+passport.use(User.createStrategy());
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+// const initializePassport = require("./config/passport");
+// initializePassport(passport);
 
 app.use("/", Routes);
 
