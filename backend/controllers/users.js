@@ -1,5 +1,5 @@
 const User = require('../models/user')
-const passport = require('../config/passport_config')
+const passport = require('passport')
 
 module.exports.signIn = (req, res) => {
     const user = new User({
@@ -11,12 +11,31 @@ module.exports.signIn = (req, res) => {
     req.login(user, err => {
         if(err){
             console.log(err);
-            res.redirect('/user/sign-in');
+            res.json({error: true, msg: "cannot login"});
         }
 
         passport.authenticate('local')(req, res, ()=>{
-            console.log("done");
-            res.redirect('/');
+            res.json({msg: 'logged in ' + user.email});
         })
     })
+
+};
+
+module.exports.signUp = (req, res) => {
+    const user = new User({
+        name: req.body.name,
+        email: req.body.email
+    });
+    
+    User.register(user, req.body.password, (err, user) => {
+        if(err){
+            console.log(err);
+            res.json({msg: "cannot register"});
+        }
+
+        passport.authenticate("local")(req, res, ()=>{
+            res.json("registered");
+        });
+    })
+
 };
