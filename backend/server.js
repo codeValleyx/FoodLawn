@@ -1,8 +1,8 @@
 require("dotenv").config()
 const express = require("express");
-const passport = require("passport");
 const session = require("express-session");
 
+const passport = require("./config/passport_config")
 const Routes = require("./routes")
 
 const PORT = process.env.PORT || 8000;
@@ -23,7 +23,7 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 
-require("./config/passport");
+
 app.use("/", Routes);
 
 app.listen(PORT, ()=>{console.log(`server listening on port ${PORT}`);})
