@@ -10,11 +10,21 @@ const orderSchema = mongoose.Schema(
             type: String,
             required: true
         },
-
         items: {
             type: [mongoose.Schema.Types.ObjectId],
             ref: 'Item'
         },
+        totalCost: Number,
+        status: {
+            type: String,
+            enum: ['preparing', 'completed', 'delivered'],
+            default: 'preparing'
+        },
+        payment_status: {
+            type: String,
+            enum: ['pending', 'failed', 'success'],
+            default: 'pending'
+        }
 
     }, {
         timestamps: true

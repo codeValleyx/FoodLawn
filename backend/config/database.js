@@ -9,5 +9,7 @@ module.exports = ()=>{
     ).catch((err)=>{
             console.log("Cant connect to database");
             console.log(err);
+
+            process.exit(1);
     }) 
 } 

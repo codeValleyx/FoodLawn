@@ -9,6 +9,11 @@ const shopSchema = mongoose.Schema({
     menu: {
         type: [mongoose.Schema.Types.ObjectId],
         ref: 'Item'
+    },
+    status: {
+        type: String,
+        enum: ['Open', 'Closed'],
+        default: 'Open'
     }
 });
 

@@ -11,6 +11,11 @@ const itemSchema = mongoose.Schema({
     },
     img: {
         type: String
+    },
+    status: {
+        type: String,
+        enum: ['avaialbe', 'unavailable'],
+        default: 'available'
     }
 });
 

@@ -12,8 +12,7 @@ const userSchema = mongoose.Schema({
         unique: true
     },
     phone:{
-        type: String,
-        unique: true
+        type: String
     }
 });
 
