@@ -10,7 +10,7 @@ const ShopCard = ({name, status, _id}) => {
     }
 
   return (
-    <div className='box-border p-5 flex my-2 rounded-xl bg-slate-200 hover:cursor-pointer md:mx-5' onClick={handleClick}>
+    <div className='box-border p-5 flex my-2 rounded-xl bg-[#f5f6fa] hover:cursor-pointer md:mx-5' onClick={handleClick}>
         <span className='mr-2 w-[60%] md:mr-3 md:w-[100%]'>
             <img  src="https://lh5.googleusercontent.com/p/AF1QipNRwWJW6jZ6leL80XvdOrOoY47XqBGKz_wY2TLT=w260-h175-n-k-no" alt= {`${name}`} />
         </span>

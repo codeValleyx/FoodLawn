@@ -44,6 +44,10 @@ const Header = () => {
     bgOverlay.classList.remove("is-active");
   };
 
+  const handleCartClick = () => {
+    navigate("/cart");
+  }
+
   const handleRegister = (e)=>{
     e.preventDefault();
     navigate("/user/sign-up");
@@ -76,7 +80,7 @@ const Header = () => {
   return (
     <header className="header" id="header">
       <nav className="navbar container">
-        <a href="./index.html" className="brand">Food Lawn</a>
+        <a href="/" className="brand">Food Lawn</a>
         <div className="burger" id="burger" onClick={handleClick_burgerMenu}>
           <span className="burger-line"></span>
           <span className="burger-line"></span>
@@ -93,11 +97,11 @@ const Header = () => {
               {user.name
               ?
               <>
-              <div onClick={toggleAfter} id="profile" className="hover:cursor-pointer underline">{user.name}</div>
-              <div id="profileOptions" className="hidden bg-[#515660] transition-opacity rounded-lg w-28 p-4 -right-2">
-                <button onClick={handleLogout} className="bg-blue-300 rounded-lg p-2 text-sm">Logout</button>
+                <div onClick={toggleAfter} id="profile" className="hover:cursor-pointer underline">{user.name}</div>
+                <div id="profileOptions" className="hidden bg-[#515660] transition-opacity rounded-lg w-28 p-4 -right-3">
+                  <button onClick={handleLogout} className="bg-blue-300 rounded-lg p-2 text-sm">Logout</button>
 
-              </div>
+                </div>
               </>
               :
               (<><a className="menu-link" href="" onClick={handleClick_menuLink}>
@@ -108,7 +112,7 @@ const Header = () => {
               </a></>)}
             </li>
 
-            <li className="menu-item relative h-full">
+            <li className="menu-item relative h-full cursor-pointer" onClick={handleCartClick}>
               {cartCount? <div className="w-5 h-5 absolute bg-orange-500 z-10 -right-3 -top-3 rounded-full flex justify-center items-center text-white">{cartCount}</div>:""}
               <img src="../../public/cart.png" className="menu-link w-8 h-8"></img>
             </li>

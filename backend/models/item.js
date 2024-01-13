@@ -9,6 +9,10 @@ const itemSchema = mongoose.Schema({
         type: Number,
         required: true
     },
+    shop: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Shop'
+    },
     img: {
         type: String
     },

@@ -12,6 +12,7 @@ import Home from './Components/Home'
 import Shop from './Components/Shop'
 import Login from './Components/Login'
 import Register from './Components/Register'
+import Cart from './Components/Cart'
 
 
 const App = () => {
@@ -23,11 +24,11 @@ const App = () => {
               <Route path='/' element={<Home />}/>
 
               <Route path='/shop' element={<Shops />} />
-
               <Route path='/shop/:id' element= {<Shop/>} />
 
               <Route path='/user/sign-in/' element= {<Login/>} />
               <Route path='/user/sign-up/' element= {<Register/>} />
+              <Route path='/cart/' element= {<Cart/>} />
 
         </Routes>
       </main>

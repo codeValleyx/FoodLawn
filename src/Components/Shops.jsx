@@ -14,7 +14,7 @@ const Shops = () => {
     }, [])
 
   return (
-    <div className='flex flex-col lg:flex-row items-center w-full bg-stone-400'>
+    <div className='flex flex-col lg:flex-row items-center flex-wrap w-full bg-[#d1d1d1] lg:items-start h-screen'>
         
         {
             shops.map((shop) => {

@@ -13,6 +13,11 @@ const userSchema = mongoose.Schema({
     },
     phone:{
         type: String
+    },
+    role: {
+        type: String,
+        required: true,
+        enum: ['Customer', 'Admin', 'Shop']
     }
 });
 

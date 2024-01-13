@@ -6,13 +6,17 @@ const orderSchema = mongoose.Schema(
             type: mongoose.Schema.Types.ObjectId,
             ref: 'User'
         },
+        shop: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Shop'
+        },
         order_id: {
             type: String,
             required: true
         },
         items: {
             type: [mongoose.Schema.Types.ObjectId],
-            ref: 'Item'
+            ref: 'OrderItem'
         },
         totalCost: Number,
         status: {
